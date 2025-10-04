@@ -19,7 +19,7 @@
     <p class="subtitle">Administra tus tareas</p>
 
     <div class="container">
-      <div class="container-tasks">
+      <section class="container-tasks">
         <form class="form" method="post">
           <h2 class="subtitle">Añade <span class="primary-color ">tareas</span> aquí</h2>
           <input type="text" name="task" placeholder="Sacar a mi perro..." autocomplete="off">
@@ -41,20 +41,19 @@
           </div>
           <button type="submit">Añadir</button>
         </form>
-      </div>
+      </section>
 
-      <div class="container-tasks">
+      <section class="container-tasks">
         <h2 class="subtitle"><span class="primary-color ">Lista</span> de tareas</h2>
-        <div id="div-user-tasks">
-          <p class="no-tasks-p">Sin tareas pendientes</p>
-        </div>
-      </div>
+        <div id="tasks-wrapper"></div>
+      </section>
     </div>
   </main>
 
   <footer>
-    <p>Desarrollado con ❤️ por </p><a href="https://github.com/Carrisonn" class="footer-link" target="_blank">
-      Carrison</a>
+    <p>Desarrollado con ❤️ por <a href="https://github.com/Carrisonn" class="footer-link" target="_blank">Carrison</a>.
+      <span id="year"></span>
+    </p>
   </footer>
 </body>
 
