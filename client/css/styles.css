@@ -13,8 +13,8 @@
   --white-color: #ffffff;
   --black-color: #000000;
 
-  --success-notification: #4caf50;
-  --error-notification: #f44336;
+  --success: #4caf50;
+  --danger: #f44336;
 }
 
 html {
@@ -57,8 +57,61 @@ p {
   font-size: var(--font-size-text);
 }
 
+.btn {
+  width: fit-content;
+  margin: 0 auto;
+  padding: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 1rem;
+  font-size: var(--font-size-text);
+  font-weight: var(--font-bold);
+  transition: transform .3s ease-in-out;
+  text-transform: uppercase;
+  color: var(--white-color);
+  box-shadow: 0px 5px 5px 0px var(--shadow-color);
+}
+
+.btn:hover {
+  transform: scale(1.1);
+}
+
 .primary-color {
   color: var(--primary-color);
+}
+
+.feedback-message {
+  width: fit-content;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  color: var(--white-color);
+  font-size: var(--font-size-text);
+  font-weight: var(--font-bold);
+  box-shadow: 0px 5px 5px 0px var(--shadow-color);
+  animation: fadeIn .2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.error {
+  background-color: var(--danger);
+}
+
+.success {
+  background-color: var(--success);
+}
+
+.display-none {
+  display: none;
 }
 
 /* Main */
@@ -92,7 +145,7 @@ p {
   box-shadow: 0px 5px 5px 0px var(--shadow-color);
 }
 
-.form {
+#form {
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -105,6 +158,7 @@ p {
     border-radius: 1rem;
     font-size: var(--font-size-text);
     transition: box-shadow .3s ease-in-out;
+    box-shadow: 0px 5px 5px 0px var(--shadow-color);
   }
 
   input:focus {
@@ -133,25 +187,63 @@ p {
     }
   }
 
-  button {
-    width: fit-content;
-    margin: 0 auto;
-    padding: 1rem;
-    cursor: pointer;
-    border: none;
-    border-radius: 1rem;
+  .btn-form {
     background-color: var(--primary-color);
-    color: var(--white-color);
-    font-size: var(--font-size-text);
-    font-weight: var(--font-bold);
-    text-transform: uppercase;
-    transition: transform .3s ease-in-out;
   }
 
-  button:hover {
+  .btn-form:hover {
     background-color: #470bd4;
-    transform: scale(1.1);
   }
+}
+
+#tasks-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.task-card {
+  padding: 2rem;
+  border: 1px solid var(--black-color);
+  border-radius: 1rem;
+  box-shadow: 0px 5px 5px 0px var(--shadow-color);
+  background-color: var(--white-color);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.task-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  p {
+    padding: 1rem;
+    text-align: left;
+    border: 1px solid var(--black-color);
+    background-color: var(--body-color);
+    border-radius: 1rem;
+    box-shadow: 0px 5px 5px 0px var(--shadow-color);
+  }
+
+  span {
+    font-weight: var(--font-bold);
+  }
+}
+
+.task-actions {
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn-edit {
+  background-color: var(--primary-color);
+}
+
+.btn-delete {
+  background-color: var(--danger);
 }
 
 footer {
@@ -169,7 +261,6 @@ footer {
     color: var(--white-color);
     text-decoration: none;
     transition: transform .3s ease-in-out;
-    margin-left: .5rem;
   }
 
   a:hover {
