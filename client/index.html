@@ -20,7 +20,7 @@
 
     <div class="container">
       <section class="container-tasks">
-        <form class="form" method="post">
+        <form id="form" method="post">
           <h2 class="subtitle">Añade <span class="primary-color ">tareas</span> aquí</h2>
           <input type="text" name="task" placeholder="Sacar a mi perro..." autocomplete="off">
 
@@ -28,19 +28,20 @@
           <div class="container-select-priority">
             <div class="container-priority">
               <label for="low-priority">Baja</label>
-              <input id="low-priority" type="radio" name="priority" value="baja">
+              <input id="low-priority" type="radio" name="priority" value="Baja">
             </div>
             <div class="container-priority">
               <label for="medium-priority">Media</label>
-              <input id="medium-priority" type="radio" name="priority" value="media">
+              <input id="medium-priority" type="radio" name="priority" value="Media">
             </div>
             <div class="container-priority">
               <label for="high-priority">Alta</label>
-              <input id="high-priority" type="radio" name="priority" value="alta">
+              <input id="high-priority" type="radio" name="priority" value="Alta">
             </div>
           </div>
-          <button type="submit">Añadir</button>
+          <button class="btn btn-form" type="submit">Añadir</button>
         </form>
+        <div id="message-container" class="display-none"></div>
       </section>
 
       <section class="container-tasks">
@@ -51,7 +52,7 @@
   </main>
 
   <footer>
-    <p>Desarrollado con ❤️ por <a href="https://github.com/Carrisonn" class="footer-link" target="_blank">Carrison</a>.
+    <p>Desarrollado con ❤️ por <a href="https://github.com/Carrisonn" class="footer-link" target="_blank">Carrison</a>
       <span id="year"></span>
     </p>
   </footer>
