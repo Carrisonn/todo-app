@@ -1,10 +1,10 @@
-import { $year, $tasksWrapper, $messageContainer } from '../DOMelements.js'
+import { $year, $tasksWrapper, $messageContainer, $form } from '../DOMelements.js'
 
 export default class UI {
 
   static renderTasks(tasks) {
-    this.removePreviousHTML($tasksWrapper)
-    if (!tasks.length) return $tasksWrapper.setHTMLUnsafe('<p>Sin tareas pendientes</p>')
+    this.removePreviousHTML()
+    if (tasks.length === 0) return $tasksWrapper.setHTMLUnsafe('<p>Sin tareas pendientes</p>')
 
     tasks.forEach(taskObj => {
       const { id, task, priority } = taskObj
@@ -12,7 +12,6 @@ export default class UI {
       const $taskCard = document.createElement('div')
       $taskCard.classList.add('task-card')
 
-      //const formattedTask = task.replace(/^\w/, character => character.toUpperCase());
       const $taskContent = document.createElement('div')
       $taskContent.classList.add('task-content')
       $taskContent.setHTMLUnsafe(`
@@ -29,17 +28,17 @@ export default class UI {
 
       $taskCard.append($taskContent, $taskActions)
       $tasksWrapper.append($taskCard)
+      $form.reset()
     })
   }
 
-  static removePreviousHTML(element) {
-    while (element.firstChild) {
-      element.removeChild(element.firstChild)
+  static removePreviousHTML() {
+    while ($tasksWrapper.firstChild) {
+      $tasksWrapper.removeChild($tasksWrapper.firstChild)
     }
   }
 
   static feedbackMessage(message, type = 'success') {
-    this.removePreviousHTML($messageContainer)
     const $message = document.createElement('p')
     $message.classList.add('feedback-message', `${type}`)
     $message.textContent = message
