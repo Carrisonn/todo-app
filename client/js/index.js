@@ -16,10 +16,11 @@ async function handleSubmit(event) {
   const priority = formData.get('priority')
   const isValidTask = ClientValidations.validateTasks({ task, priority })
   if (!isValidTask) return UI.feedbackMessage('Por favor, completa todos los campos', 'error')
-  //const formattedTask = task.replace(/^\w/, character => character.toUpperCase());
-  //const tasks = await Tasks.addTask({ task: formattedTask, priority })
-  //UI.renderTasks(tasks)
-  $form.reset()
+  const formattedTask = task.replace(/^\w/, character => character.toUpperCase())
+  const data = await Tasks.addTask({ task: formattedTask, priority })
+  if (!data.tasks) return UI.feedbackMessage(data.message, 'error')
+  UI.renderTasks(data.tasks)
+  UI.feedbackMessage(data.message)
 }
 
 InitApp()
