@@ -12,6 +12,8 @@ DB.authenticate()
 
 app.disable('x-powered-by')
 
+app.use(express.json())
+
 app.use(express.static('client'))
 
 app.use('/', router)
