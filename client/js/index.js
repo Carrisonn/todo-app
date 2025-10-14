@@ -5,7 +5,7 @@ import { $form } from './constants.js'
 
 async function InitApp () {
   const tasks = await Tasks.getTasks()
-  UI.renderTasks(tasks)
+  UI.orderByPriority(tasks)
   $form.addEventListener('submit', handleSubmit)
 }
 
@@ -19,7 +19,7 @@ async function handleSubmit (event) {
   const formattedTask = task.replace(/^\w/, character => character.toUpperCase())
   const data = await Tasks.addTask({ task: formattedTask, priority })
   if (!data.tasks) return UI.feedbackMessage(data.message, 'error')
-  UI.renderTasks(data.tasks)
+  UI.orderByPriority(data.tasks)
   UI.feedbackMessage(data.message)
 }
 
@@ -27,7 +27,7 @@ export async function handleDeleteTask (id) {
   if (!id) return UI.feedbackMessage('Hubo un error al intentar borrar la tarea', 'error')
   const data = await Tasks.deleteTask(id)
   if (!data.tasks) return UI.feedbackMessage(data.message, 'error')
-  UI.renderTasks(data.tasks)
+  UI.orderByPriority(data.tasks)
   UI.feedbackMessage(data.message)
 }
 
