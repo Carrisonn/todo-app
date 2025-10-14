@@ -2,9 +2,15 @@ import { $year, $tasksWrapper, $messageContainer, $form, deleteSvg } from '../co
 import { handleDeleteTask } from '../index.js'
 
 export default class UI {
+  static orderByPriority (tasks) {
+    if (tasks.length === 0) return $tasksWrapper.setHTMLUnsafe('<p>Sin tareas pendientes</p>')
+    const priorityOrder = { Baja: 0, Media: 1, Alta: 2 }
+    tasks.sort((obj1, obj2) => priorityOrder[obj2.priority] - priorityOrder[obj1.priority])
+    this.renderTasks(tasks)
+  }
+
   static renderTasks (tasks) {
     this.removePreviousHTML()
-    if (tasks.length === 0) return $tasksWrapper.setHTMLUnsafe('<p>Sin tareas pendientes</p>')
 
     tasks.forEach(taskObj => {
       const { id, task, priority } = taskObj
@@ -26,8 +32,8 @@ export default class UI {
 
       $taskCard.append($taskContent, $deleteButton)
       $tasksWrapper.append($taskCard)
-      $form.reset()
     })
+    $form.reset()
   }
 
   static removePreviousHTML () {
