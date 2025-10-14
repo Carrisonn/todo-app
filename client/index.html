@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Type" content="text/html">
+  <meta name="description" content="TODO App - Lista y administra tus tareas" />
+  <link rel="icon" href="icons/web-icon.svg" type="image/svg+xml">
+  <title>TODO App - Carrison</title>
+  <link rel="preload" href="css/styles.css" as="style">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="module" src="js/index.js"></script>
+</head>
+
+<body>
+  <main>
+    <h1 class="title">TODO <span class="primary-color ">App</span></h1>
+    <p class="subtitle">Administra tus tareas</p>
+
+    <div class="container">
+      <section class="container-tasks">
+        <form id="form" method="post">
+          <h2 class="subtitle">Añade <span class="primary-color ">tareas</span> aquí</h2>
+          <input type="text" name="task" placeholder="Sacar a mi perro..." autocomplete="off">
+
+          <h2 class="subtitle">Selecciona una <span class="primary-color">prioridad</span></h2>
+          <div class="container-select-priority">
+            <div class="container-priority">
+              <label for="low-priority">Baja</label>
+              <input id="low-priority" type="radio" name="priority" value="Baja" autocomplete="off">
+            </div>
+            <div class="container-priority">
+              <label for="medium-priority">Media</label>
+              <input id="medium-priority" type="radio" name="priority" value="Media" autocomplete="off">
+            </div>
+            <div class="container-priority">
+              <label for="high-priority">Alta</label>
+              <input id="high-priority" type="radio" name="priority" value="Alta" autocomplete="off">
+            </div>
+          </div>
+          <button class="btn btn-form" type="submit">Añadir</button>
+        </form>
+        <div id="message-container" class="display-none"></div>
+      </section>
+
+      <section class="container-tasks">
+        <h2 class="subtitle"><span class="primary-color ">Lista</span> de tareas</h2>
+        <div id="tasks-wrapper"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p>Desarrollado con ❤️ por <a href="https://github.com/Carrisonn" class="footer-link" target="_blank">Carrison</a>
+      <span id="year"></span>
+    </p>
+  </footer>
+</body>
+
+</html>

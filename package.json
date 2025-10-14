@@ -1,0 +1,26 @@
+{
+  "name": "todo-app",
+  "version": "1.0.0",
+  "description": "TODO App",
+  "license": "ISC",
+  "author": "carrison",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node --watch index.js",
+    "start": "node index.js",
+    "lint": "standard --fix"
+  },
+  "dependencies": {
+    "dotenv": "17.2.3",
+    "express": "5.1.0",
+    "mysql2": "3.15.1",
+    "sequelize": "6.37.7"
+  },
+  "devDependencies": {
+    "standard": "17.1.2"
+  },
+  "eslintConfig": {
+    "extends": "standard"
+  }
+}
